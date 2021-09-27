@@ -4,10 +4,10 @@
     $existe = isset($_SESSION['esta_logado']);
 
     if($existe == false){
-        header("Location: login.php");
+        header("Location: app/view/login.php");
     }
 
-    require 'agendaCRUD.php';
+    require 'app/model/agendaCRUD.php';
 
     if ($_GET['acao'] != 'buscar'){
         $meusContatos = pegarContatos();
@@ -20,7 +20,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Agenda</title>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -29,7 +28,7 @@
 <div class="container" style="margin-top: 30px;">
 
 
-    <a href="verificaUsuario.php?acao=sair"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"></span></button></a>
+    <a href="app/controller/verificaUsuario.php?acao=sair"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"></span></button></a>
     <h1 align="center">Bem vindo à agenda!</h1>
     <br>
     <br>
@@ -39,9 +38,7 @@
     <!-- CADASTRO-->
     <div class="row">
         <div class="col-md-12">
-            <form class="form-inline" action="agendaCRUD.php?acao=cadastrar" method="post" >
-
-
+            <form class="form-inline" action="app/model/agendaCRUD.php?acao=cadastrar" method="post" >
 
                 <!--nome-->
                 <div class="col-md-6">
@@ -49,7 +46,7 @@
                     <input name="nome" required type="text" class="form-control" id="nome" placeholder="Nome" style="width: 450px">
                 </div>
 
-                 <!--sobrenome-->
+                <!--sobrenome-->
                  <div class="col-md-6">
                     <label for="sobrenome"></label>
                     <input name="sobrenome" required type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" style="width: 220px">
@@ -76,7 +73,7 @@
                     <label for="observacao"></label>
                     <input name="observacao" type="text" class="form-control" id="observacao" placeholder="Observação" style="width: 790px">
                 </div>
-<br><br><br>
+                <br><br><br>
                 <button type="submit" class="btn btn-success">Cadastrar
                     <span class="glyphicon glyphicon-save"></span>
                 </button>
@@ -137,12 +134,12 @@
                         <td><?= $contato['telefone'] ?>  </td>
                         <td><?= $contato['observacao'] ?></td>
                         <td>
-                            <a href="agendaCRUD.php?acao=excluir&id=<?= $contato['id'] ?>">
+                            <a href="app/model/agendaCRUD.php?acao=excluir&id=<?= $contato['id'] ?>">
                                 <button type="submit" class="btn btn-danger">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </a>
-                            <a href="editarContato.php?id=<?= $contato['id'] ?>">
+                            <a href="app/view/editarContato.php?id=<?= $contato['id'] ?>">
                                 <button type="submit" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </button>

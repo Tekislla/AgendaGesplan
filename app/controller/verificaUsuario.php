@@ -4,8 +4,8 @@
 
     function login(){
 
-        //lê os usuários do arquivo e converte em um array
-        $lista_usuarios = file_get_contents("usuarios.json");
+        //LÊ OS USUÁRIOS DO ARQUIVO E OS CONVERTE EM UM ARRAY
+        $lista_usuarios = file_get_contents("../../assets/json/usuarios.json");
         $lista_convertida = json_decode($lista_usuarios, true);
 
         $login = $_POST['login'];
@@ -18,21 +18,21 @@
                 $_SESSION['nome']        = $usuario['nome'];
                 $_SESSION['esta_logado'] = true;
 
-                header("Location: index.php");
+                header("Location: ../../index.php");
 
             }
         }
 
         if (!$_SESSION['esta_logado']){
-            header("Location: login.php");
+            header("Location: ../view/login.php");
         }
     }
 
     function logout(){
-        //sair
+        //SAIR
         session_destroy();
-        //redirecionar
-        header("Location: login.php");
+        //REDIRECIONAR
+        header("Location: ../view/login.php");
     }
 
     //ROTAS

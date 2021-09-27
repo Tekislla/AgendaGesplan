@@ -9,7 +9,7 @@
 <br><br>
 <h1 align="center">Faça o login para acessar a agenda.</h1>
 <h6 align="center">(entre com "admin", "admin", "admin" ou cadastre um novo usuário).</h6>
-<form class="form-horizontal" action="verificaUsuario.php?acao=login" method="post" onsubmit= validaUsuario()>
+<form class="form-horizontal" action="../controller/verificaUsuario.php?acao=login" method="post" onsubmit= validaUsuario()>
     <fieldset>
         <br><br>
 

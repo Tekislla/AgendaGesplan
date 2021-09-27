@@ -1,5 +1,5 @@
 <?php 
-    require 'agendaCRUD.php';
+    require '../model/agendaCRUD.php';
 ?>
 
 <!doctype html>
@@ -13,7 +13,7 @@
 <body>
 <br><br>
 <h1 align="center">Cadastre-se!</h1>
-<form class="form-horizontal" onsubmit="return validacao()" id="formulario" action="agendaCRUD.php?acao=cadastrarUsuario" method="post">
+<form class="form-horizontal" onsubmit="return validacao()" id="formulario" action="../model/agendaCRUD.php?acao=cadastrarUsuario" method="post">
     <fieldset>
         <br><br>
 

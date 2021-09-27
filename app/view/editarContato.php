@@ -1,5 +1,5 @@
 <?php
-    require 'agendaCRUD.php';
+    require '../model/agendaCRUD.php';
     $contato = buscarContatoParaEditar($_GET['id']);
 ?>
 
@@ -13,35 +13,35 @@
 <body>
 <br><br>
 <h1 align="center">Edite o Contato</h1>
-<form class="form-horizontal" action="agendaCRUD.php?acao=editar&id=<?= $contato['id'] ?>" method="post">
+<form class="form-horizontal" action="../model/agendaCRUD.php?acao=editar&id=<?= $contato['id'] ?>" method="post">
     <fieldset>
         <br><br><br><br>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Nome</label>
             <div class="col-md-4">
-                <input name="nome" placeholder="<?= $contato['nome'] ?>" type="text" class="form-control input-md">
+                <input name="nome" required placeholder="<?= $contato['nome'] ?>" type="text" class="form-control input-md">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Sobrenome</label>
             <div class="col-md-4">
-                <input name="sobrenome" placeholder="<?= $contato['sobrenome'] ?>" type="text" class="form-control input-md">
+                <input name="sobrenome" required placeholder="<?= $contato['sobrenome'] ?>" type="text" class="form-control input-md">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Email</label>
             <div class="col-md-4">
-                <input name="email" placeholder="<?= $contato['email'] ?>" type="email" class="form-control input-md">
+                <input name="email" required placeholder="<?= $contato['email'] ?>" type="email" class="form-control input-md">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Telefone</label>
             <div class="col-md-4">
-                <input name="telefone" placeholder="<?= $contato['telefone'] ?>" type="number" class="form-control input-md">
+                <input name="telefone" required placeholder="<?= $contato['telefone'] ?>" type="number" class="form-control input-md">
             </div>
         </div>
 

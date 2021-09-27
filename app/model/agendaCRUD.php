@@ -11,11 +11,11 @@
         return $conteudo;
     }
 
+
     function transformaJson(array $variavel, string $arquivo){                   //FUNÇÃO PARA TRANSFORMAR ARRAY EM JSON
 
         $conteudo = json_encode($variavel, JSON_PRETTY_PRINT);                              //TRANSORMAR ARRAY PARA JSON
         file_put_contents($arquivo, $conteudo);                                     //ATUALIZAR CONTEÚDO DO ARQUIVO JSON
-
     }
 
 
@@ -36,13 +36,13 @@
 
         transformaJson($contatos, "contatos.json");                                           //TRANSFORMA ARRAY EM JSON
 
-        header('Location: index.php');                                                //REDIRECIONAR PARA PÁGINA INICIAL
-
+        header('Location: ../../index.php');                                          //REDIRECIONAR PARA PÁGINA INICIAL
     }                                                                                                    //FIM DA FUNÇÃO
+
 
      function cadastrarUsuario(){                                                     //FUNÇÃO PARA CADASTRAR UM USUÁRIO
         
-        $usuarios = transformaArray("usuarios.json");                                  //TRANSFORMAR DADOS JSON EM ARRAY
+        $usuarios = transformaArray("../../assets/json/usuarios.json");                //TRANSFORMAR DADOS JSON EM ARRAY
 
         $usuario = [
             "nome"     => $_POST['nome'],                                                       //PEGAR O NOME INFORMADO
@@ -53,9 +53,9 @@
 
         array_push($usuarios, $usuario);                                             //INSERIR DADOS INFORMADOS NO ARRAY
  
-        transformaJson($usuarios, "usuarios.json");                                           //TRANSFORMA ARRAY EM JSON
+        transformaJson($usuarios, "../../assets/json/usuarios.json");                         //TRANSFORMA ARRAY EM JSON
 
-        header('Location: login.php');                                                 //REDIRECIONAR PARA TELA DE LOGIN
+        header('Location: ../view/login.php');                                         //REDIRECIONAR PARA TELA DE LOGIN
     }                                                                                                    
 
 
@@ -66,6 +66,7 @@
         return $contatos;                                                                         //RETORNAR OS CONTATOS
      }                                                                                                   //FIM DA FUNÇÃO
 
+    
     function pesquisarContato($valorBuscado){                                         //FUNÇÃO PARA PESQUISAR UM CONTATO
 
         $contatos = transformaArray("contatos.json");                                  //CONVERTER DADOS JSON PARA ARRAY
@@ -80,8 +81,8 @@
         }
 
         return $novosContatos;                                                                 //RETORNAR NOVOS CONTATOS
-
     }                                                                                                    //FIM DA FUNÇÃO
+
 
     function buscarContatoParaEditar($valorBuscado){                                     //FUNÇÃO PARA EDITAR UM CONTATO
 
@@ -99,6 +100,7 @@
 
     }
 
+    
     function salvarContatoEditado($id){                                           //FUNÇÃO PARA SALVAR O CONTATO EDITADO
 
         $contatosAuxiliar = transformaArray("contatos.json");                          //CONVERTER DADOS JSON PARA ARRAY
@@ -118,7 +120,7 @@
 
         transformaJson($contatosAuxiliar, "contatos.json");                                   //TRANSFORMA ARRAY EM JSON
 
-        header('Location: index.php');                                                       //REDIRECIONAR PARA O INDEX
+        header('Location: ../../index.php');                                                 //REDIRECIONAR PARA O INDEX
 
     }                                                                                                    //FIM DA FUNÇÃO
 
@@ -137,7 +139,7 @@
 
         transformaJson($contatos, "contatos.json");                                           //TRANSFORMA ARRAY EM JSON
 
-        header('Location: index.php');                                                //REDIRECIONAR PARA PÁGINA INICIAL
+        header('Location: ../../index.php');                                          //REDIRECIONAR PARA PÁGINA INICIAL
 
     }                                                                                                    //FIM DA FUNÇÃO
 
