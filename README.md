@@ -1,4 +1,4 @@
-# AgendaGesplan
+# Agenda de contatos
 
 O usuário deverá se cadastrar para começar a utilizar a agenda.
 O usuário deverá inserir nome, sobrenome, e-mail e telefone do contato, e uma observação opcional.
